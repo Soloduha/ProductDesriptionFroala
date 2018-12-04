@@ -80,8 +80,20 @@
             .on('froalaEditor.image.beforeUpload', function (e, editor, response) {
                 console.log(response);
             })
-            .on('froalaEditor.image.uploaded', function (e, editor, response) {
-                //console.log("asdasd");
+            .on('froalaEditor.image.removed', function (e, editor, $file) {
+                $.ajax({
+                    // Request method.
+                    method: "POST",
+                    data: { Name:$file.attr('src')},
+                    url: '@Url.Action("RemoveImage", "Blog")',
+                    dataType: "json"
+                })
+                    .done(function (data) {
+                        console.log('image was deleted');
+                    })
+                    .fail(function () {
+                        console.log('image delete problem');
+                    })
             })
     });
 </script>

@@ -30,5 +30,16 @@ namespace Blog.Controllers
             var rlink = "Blog/Images/" + fileName;
             return Json(new { link = new UrlHelper(Request.RequestContext).Content("~/Images/" + fileName) }, JsonRequestBehavior.AllowGet);
         }
+
+        [HttpPost]
+        public ActionResult RemoveImage(string Name)
+        {
+            string path = Server.MapPath(Name);
+            if (System.IO.File.Exists(path))
+            {
+                System.IO.File.Delete(path);
+            }
+            return View("Add");
+        }
     }
 }
