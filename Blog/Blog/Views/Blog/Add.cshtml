@@ -66,7 +66,23 @@
 
 <script>
     $(function () {
-        $(".html-editor-autoinit").froalaEditor();
-    })
+        $(".html-editor-autoinit").froalaEditor({
+
+            // Set the image upload URL.
+            imageUploadURL: '/Blog/SaveImage',
+
+            //// Set request type.
+            imageUploadMethod: 'POST',
+
+            //// Allow to upload PNG and JPG.
+            imageAllowedTypes: ['jpeg', 'jpg', 'png']
+        })
+            .on('froalaEditor.image.beforeUpload', function (e, editor, response) {
+                console.log(response);
+            })
+            .on('froalaEditor.image.uploaded', function (e, editor, response) {
+                //console.log("asdasd");
+            })
+    });
 </script>
 }
