@@ -24,7 +24,8 @@ namespace Blog.Controllers
         [HttpPost]
         public ActionResult SaveImage(HttpPostedFileBase file)
         {
-            var fileName = Path.GetFileName(file.FileName);
+            //var fileName = Path.GetFileName(file.FileName);
+            var fileName = Guid.NewGuid().ToString()+".jpg";
             var rootPath = Server.MapPath("~/Images/");
             file.SaveAs(Path.Combine(rootPath, fileName));
             var rlink = "Blog/Images/" + fileName;

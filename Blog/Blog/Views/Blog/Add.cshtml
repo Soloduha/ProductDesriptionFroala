@@ -44,7 +44,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="button" value="Create" class="btn btn-default" id="createInput" />
             </div>
         </div>
     </div>
@@ -84,7 +84,7 @@
                 $.ajax({
                     // Request method.
                     method: "POST",
-                    data: { Name:$file.attr('src')},
+                    data: { Name: $file.attr('src') },
                     url: '@Url.Action("RemoveImage", "Blog")',
                     dataType: "json"
                 })
@@ -94,7 +94,14 @@
                     .fail(function () {
                         console.log('image delete problem');
                     })
-            })
+            });
+
+        $("#createInput").click(
+            function () {
+                var html = $('.fr-wrapper').text();
+                console.log(html);
+            }
+        );
     });
 </script>
 }
