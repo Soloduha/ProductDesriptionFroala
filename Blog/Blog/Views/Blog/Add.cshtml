@@ -45,6 +45,7 @@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="button" value="Create" class="btn btn-default" id="createInput" />
+                <input type="button" value="Insert" class="btn btn-info" id="insertInput" />
             </div>
         </div>
     </div>
@@ -85,8 +86,7 @@
                     // Request method.
                     method: "POST",
                     data: { Name: $file.attr('src') },
-                    url: '@Url.Action("RemoveImage", "Blog")',
-                    dataType: "json"
+                    url: '@Url.Action("RemoveImage", "Blog")'
                 })
                     .done(function (data) {
                         console.log('image was deleted');
@@ -98,8 +98,16 @@
 
         $("#createInput").click(
             function () {
-                var html = $('.fr-wrapper').text();
-                console.log(html);
+                 $html = $('#textEdit').froalaEditor('html.get');
+                
+
+                 $.ajax({
+                    // Request method.
+                    method: "POST",
+                    data: { content: $html },
+                    url: '@Url.Action("SaveHtml", "Blog")'
+                })
+                $('#textEdit').froalaEditor('html.set', '');
             }
         );
     });

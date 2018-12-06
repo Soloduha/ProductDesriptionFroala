@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Blog.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -39,6 +40,24 @@ namespace Blog.Controllers
             if (System.IO.File.Exists(path))
             {
                 System.IO.File.Delete(path);
+            }
+            return View("Add");
+        }
+
+
+        
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult SaveHtml(string content)
+        {
+            using (ApplicationDbContext context = new ApplicationDbContext())
+            {
+                context.Contents.Add(new Models.Content()
+                {
+                    Paste = content.ToString(),
+                    LastChanges = DateTime.Now
+                });
+                context.SaveChanges();
             }
             return View("Add");
         }

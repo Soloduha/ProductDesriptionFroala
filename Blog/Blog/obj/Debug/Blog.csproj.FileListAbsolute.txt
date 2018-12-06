@@ -484,3 +484,4 @@ C:\Users\Влад\Source\Repos\ProductDesriptionFroala\Blog\Blog\bin\roslyn\vbc.
 C:\Users\Влад\Source\Repos\ProductDesriptionFroala\Blog\Blog\bin\roslyn\vbc.rsp
 C:\Users\Влад\Source\Repos\ProductDesriptionFroala\Blog\Blog\bin\roslyn\VBCSCompiler.exe
 C:\Users\Влад\Source\Repos\ProductDesriptionFroala\Blog\Blog\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\soloduhavlad\Source\Repos\ProductDesriptionFroala2\Blog\Blog\obj\Debug\Blog.Migrations.Migr11.resources
